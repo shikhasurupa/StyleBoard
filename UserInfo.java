@@ -17,11 +17,14 @@ public class UserInfo {
     @Column(nullable = false)
     private String password; // For simplicity, password is stored directly. In real-world apps, hash the password.
 
+    @Column(nullable = false)
+    private String role; // e.g., "USER", "ADMIN"
+
 
     ////Constructor//
 
 
-    public UserInfo() {
+    public UserInfo(String email, String name, String password) {
     }
 
     public UserInfo(Long id, String email, String name, String password) {
