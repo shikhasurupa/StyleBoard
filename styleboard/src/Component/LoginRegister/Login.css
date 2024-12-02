@@ -8,7 +8,7 @@
     background: #fff;
     border-radius: 18px;
 }
-  
+
 .form {
     display: flex;
     flex-direction: column;
@@ -18,6 +18,7 @@
 .form input {
     padding: 10px;
     margin-bottom: 10px;
+    width: 100%;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -34,4 +35,10 @@
     text-align: center;
     font-size: 12px;
     text-align: right;
+}
+
+.error {
+    color: red;
+    font-size: 10px;
+    padding-bottom: 10px;
 }

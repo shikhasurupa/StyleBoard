@@ -5,29 +5,89 @@ import { useState } from 'react'
 
 const LoginRegister = () => {
 
-    const [isLogin, setLogin] = useState("true");
+    const [isLogin, setLogin] = useState(true);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [password2, setPassword2] = useState('');
+    const [errors, setErrors] = useState([]);
 
+    // error validation on submit
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const errors = validate();
+        setErrors(errors);
+        if(Object.keys(errors).length == 0) {
+            alert("Done"); // proceed to main feed
+        }
+    }
+
+    // handles switch from login to register and vice versa
+    const handleSwitch = (login) => {
+        resetForm();
+        setLogin(login);
+    };
+
+    // resets values
+    const resetForm = () => {
+        setUsername('');
+        setPassword('');
+        setPassword2('');
+        setErrors({});
+    };
+
+    //validations
+    const validate = () => {
+        const error = {};
+
+        if(!username) {
+            error.username = 'Enter your username';
+        }
+        else{
+            error.username = "";
+        }
+        if(!password) {
+            error.password = 'Enter your password';
+        }
+        else if (password!=password2){
+            error.password2 = "Password does not match"
+        }
+        else{
+            error.password = "";
+            error.password2="";
+        }
+        return error;
+    }
+
+    //Login and Register forms
     return (
         <div className='container'>
             {isLogin? <>
             <div className='form'>
+            <form onSubmit={handleSubmit}>
                 <h2>Login</h2>
-                <input type="text" placeholder="Username" />
-                <input type="password" placeholder="Password"/>
-                <button>Login</button>
-                <p>Don't have an account? <a href='#' onClick={()=>setLogin(false)}>Click Here</a></p>
+                    <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
+                    {errors.username && <div className='error'>{errors.username}</div>}
+                    <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                    {errors.password && <div className='error'>{errors.password}</div>}
+                    <button>Login</button>
+                    <p>Don't have an account? <a href="#" onClick={() => handleSwitch(false)}>Click Here</a></p>
+                </form>
             </div>
             </> : <>
             <div className='form'>
                 <h2>Create an Account</h2>
-                <input type="text" placeholder="Username" />
-                <input type="password" placeholder="Password"/>
-                <input type="password" placeholder="Confirm Password"/>
-                <button>Register</button>
-                <p>Have an account already? <a href='#' onClick={()=>setLogin(true)}>Click Here</a></p>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
+                    {errors.username && <div className='error'>{errors.username}</div>}
+                    <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+                    {errors.password && <div className='error'>{errors.password}</div>}
+                    <input type="password" placeholder="Confirm Password" onChange={(e) => setPassword2(e.target.value)}/>
+                    {errors.password2 && <div className='error'>{errors.password2}</div>}
+                    <button>Register</button>
+                    <p>Have an account already? <a href="#" onClick={() => handleSwitch(true)}>Click Here</a></p>
+                </form>
             </div>
             </>}
-            
         </div>
     )
 }
