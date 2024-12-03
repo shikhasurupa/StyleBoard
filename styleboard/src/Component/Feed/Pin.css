@@ -1,0 +1,35 @@
+.pin {
+    border-radius: 16px;
+    background-color: #444;
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+  }
+
+  .pin.mainPic {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pin:hover .button {
+    bottom : 0;
+    transition: bottom 0.3s;
+  }
+
+  .pin.small {
+    grid-row-end: span 26;
+  }
+  
+  .pin.medium {
+    grid-row-end: span 33;
+  }
+  
+  .pin.large {
+    grid-row-end: span 45;
+  }
