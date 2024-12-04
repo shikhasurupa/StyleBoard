@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "./logo.png";
 import "./Header.css";
+import { useNavigate } from 'react-router-dom'
+
 
 // Header
 const Header = () => {
@@ -10,6 +12,9 @@ const Header = () => {
       console.log(`Selected category: ${selectedCategory}`);
     }
   };
+
+  const navigate = useNavigate();
+
 
   return (
     <div className="header">
@@ -26,9 +31,9 @@ const Header = () => {
             <option value="Men">Men</option>
             <option value="Kids">Kids</option>
         </select>
-        <button className="link-button">Home</button>
-        <button className="link-button">Collections</button>
-        <button className="log-out-button">Log Out</button>
+        <button className="link-button" onClick={() => navigate("/feed")}>Home</button>
+        <button className="link-button" onClick={() => navigate("/collections")}>Collections</button>
+        <button className="log-out-button" onClick={() => navigate("/")}>Log Out</button>
       </div>
     </div>
   );
