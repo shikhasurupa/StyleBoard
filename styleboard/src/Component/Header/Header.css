@@ -30,6 +30,19 @@
     gap: 1.5rem;
 }
 
+.links .dropdown-select {
+    background-color: transparent;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding-left: 1.8px;
+    padding-right: 1.8px;
+}
+
 .link-button {
     background-color: transparent;
     border: 1px solid #333;
