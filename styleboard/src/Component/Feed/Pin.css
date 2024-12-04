@@ -8,9 +8,32 @@
     display: flex;
     justify-content: center;
   }
+  
+  .pin .save {
+    position: absolute;
+    top: -140px;
+    display: flex;
+    object-fit: contain;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+    padding: 0px 15px;
+    border-radius: 20px;
+    background-color: #d10014;
+    border-color: transparent;
+    cursor: pointer;
+  }
 
-  .pin:hover .button {
-    bottom : 0;
+  .pin .save img {
+    object-fit: fill;
+    width: 110%;
+    height: 110%;
+  }
+
+  .pin:hover .save {
+    position: absolute;
+    top: 8px;
+    right: 16px;
     transition: bottom 0.3s;
   }
 

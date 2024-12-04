@@ -5,6 +5,11 @@ function Pin({pinSize, imgSrc}) {
     return (
         <div className={`pin ${pinSize}`}>
             <img src={imgSrc}/>
+            <div>
+                <button className='save'>
+                    <img src="https://github.com/shikhasurupa/StyleBoard/blob/FeedScreen/styleboard/src/Images/SaveButton.png?raw=true" />
+                </button>
+            </div>
         </div>
     );
 }
