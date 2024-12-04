@@ -7,7 +7,7 @@ function Pin({pinSize, imgSrc}) {
             <img src={imgSrc}/>
             <div>
                 <button className='save'>
-                    <img src="https://github.com/shikhasurupa/StyleBoard/blob/FeedScreen/styleboard/src/Images/SaveButton.png?raw=true" />
+                    <img src="https://github.com/shikhasurupa/StyleBoard/blob/FeedScreen/styleboard/src/Images/OvelSaveButton.png?raw=true" />
                 </button>
             </div>
         </div>
