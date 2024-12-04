@@ -21,8 +21,6 @@ const LoginRegister = () => {
         if(Object.keys(errors).length == 0) {
             navigate('/feed'); // Navigate to the feed page
             console.log("Navigating to /feed");
-        } else {
-            console.log("Validation errors:", errors);
         }
     }
 
