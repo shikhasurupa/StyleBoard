@@ -2,6 +2,7 @@ import React from 'react'
 
 import './Login.css'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const LoginRegister = () => {
 
@@ -10,6 +11,7 @@ const LoginRegister = () => {
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
     const [errors, setErrors] = useState([]);
+    const navigate = useNavigate();
 
     // error validation on submit
     const handleSubmit = (event) => {
@@ -58,7 +60,8 @@ const LoginRegister = () => {
         return error;
     }
 
-    //Login and Register forms
+    //Login and Register forms    const navigate = useNavigate();
+
     return (
         <div className='container'>
             {isLogin? <>
@@ -69,7 +72,7 @@ const LoginRegister = () => {
                     {errors.username && <div className='error'>{errors.username}</div>}
                     <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                     {errors.password && <div className='error'>{errors.password}</div>}
-                    <button>Login</button>
+                    <button onClick={() => navigate("/feed")}>Login</button>
                     <p>Don't have an account? <a href="#" onClick={() => handleSwitch(false)}>Click Here</a></p>
                 </form>
             </div>
@@ -83,7 +86,7 @@ const LoginRegister = () => {
                     {errors.password && <div className='error'>{errors.password}</div>}
                     <input type="password" placeholder="Confirm Password" onChange={(e) => setPassword2(e.target.value)}/>
                     {errors.password2 && <div className='error'>{errors.password2}</div>}
-                    <button>Register</button>
+                    <button onClick={() => navigate("/feed")}>Register</button>
                     <p>Have an account already? <a href="#" onClick={() => handleSwitch(true)}>Click Here</a></p>
                 </form>
             </div>

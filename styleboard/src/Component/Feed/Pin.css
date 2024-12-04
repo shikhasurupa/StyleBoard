@@ -1,0 +1,27 @@
+.pin {
+    border-radius: 20px;
+    background-color: black;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+  }
+
+  .pin:hover .button {
+    bottom : 0;
+    transition: bottom 0.3s;
+  }
+
+  .pin.small {
+    grid-row-end: span 23;
+  }
+  
+  .pin.medium {
+    grid-row-end: span 30;
+  }
+  
+  .pin.large {
+    grid-row-end: span 43;
+  }

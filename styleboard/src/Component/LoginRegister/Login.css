@@ -29,6 +29,7 @@
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
 }
   
 .form p {
