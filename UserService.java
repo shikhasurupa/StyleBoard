@@ -1,7 +1,7 @@
-package org.example.styleboard.service;
+package org.proj.styleboard.service;
 
-import org.example.styleboard.model.User;
-import org.example.styleboard.repository.UserRepository;
+import org.proj.styleboard.entity.UserInfo;
+import org.proj.styleboard.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,27 +18,29 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User createUser(User user) {
+    // Register a new user
+    public UserInfo registerUser(String email, String name, String password) {
+        UserInfo user = new UserInfo(email, name, password);
         return userRepository.save(user);
     }
 
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
-    }
-
-    public Optional<User> getUserByUsername(String username) {
+    // Find user by username
+    public Optional<UserInfo> findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
-    public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+    // Find user by ID
+    public Optional<UserInfo> findUserById(Long id) {
+        return userRepository.findById(id);
     }
 
+    // Update user information
+    public UserInfo updateUser(UserInfo user) {
+        return userRepository.save(user);
+    }
+
+    // Delete user by ID
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
-    }
-
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
     }
 }
