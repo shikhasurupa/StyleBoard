@@ -93,7 +93,7 @@ const Data = [
     {
       id: 14,
       imgSrc:
-        "https://github.com/shikhasurupa/StyleBoard/blob/main/Images/Men/1911.jpg?raw=true",
+        "https://github.com/shikhasurupa/StyleBoard/blob/main/styleboard/src/Images/Men/1911.jpg?raw=true",
       type: "men",
       size: "medium",
     },
