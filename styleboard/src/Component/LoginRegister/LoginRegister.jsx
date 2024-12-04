@@ -19,7 +19,9 @@ const LoginRegister = () => {
         const errors = validate();
         setErrors(errors);
         if(Object.keys(errors).length == 0) {
-            navigate('/feed'); // Navigate to the feed page
+            setTimeout(() => {
+                navigate('/feed'); // Navigate to the feed page
+            }, 500);
         }
     }
 
