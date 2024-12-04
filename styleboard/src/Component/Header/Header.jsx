@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "./logo.png";
 import "./Header.css";
+import { useNavigate } from 'react-router-dom'
+
 
 const Header = ({ onCategoryChange }) => {
   const handleCategoryChange = (event) => {
@@ -9,6 +11,7 @@ const Header = ({ onCategoryChange }) => {
       onCategoryChange(selectedCategory);
     }
   };
+  const navigate = useNavigate();
 
   return (
     <div className="header">
@@ -25,9 +28,10 @@ const Header = ({ onCategoryChange }) => {
             <option value="Men">Men</option>
             <option value="Kids">Kids</option>
         </select>
-        <button className="link-button">Home</button>
-        <button className="link-button">Collections</button>
-        <button className="log-out-button">Log Out</button>
+        <button className="link-button" onClick={() => navigate("/feed")}>Home</button>
+        <button className="link-button" onClick={() => navigate("/collections")}>Collections</button>
+        <button className="log-out-button" onClick={() => setTimeout(() => {
+                navigate("/")}, 500)}>Log Out</button>
       </div>
     </div>
   );

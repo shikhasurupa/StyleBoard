@@ -19,7 +19,9 @@ const LoginRegister = () => {
         const errors = validate();
         setErrors(errors);
         if(Object.keys(errors).length == 0) {
-            alert("Done"); // proceed to main feed
+            setTimeout(() => {
+                navigate('/feed'); // Navigate to the feed page
+            }, 500);
         }
     }
 
@@ -40,25 +42,18 @@ const LoginRegister = () => {
     //validations
     const validate = () => {
         const error = {};
-
-        if(!username) {
+    
+        if (!username) {
             error.username = 'Enter your username';
         }
-        else{
-            error.username = "";
-        }
-        if(!password) {
+        if (!password) {
             error.password = 'Enter your password';
+        } else if (!isLogin && password !== password2) {
+            error.password2 = 'Passwords do not match';
         }
-        else if (password!=password2){
-            error.password2 = "Password does not match"
-        }
-        else{
-            error.password = "";
-            error.password2="";
-        }
+    
         return error;
-    }
+    };
 
     //Login and Register forms    const navigate = useNavigate();
 
@@ -72,7 +67,7 @@ const LoginRegister = () => {
                     {errors.username && <div className='error'>{errors.username}</div>}
                     <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
                     {errors.password && <div className='error'>{errors.password}</div>}
-                    <button onClick={() => navigate("/feed")}>Login</button>
+                    <button type="submit">Login</button>
                     <p>Don't have an account? <a href="#" onClick={() => handleSwitch(false)}>Click Here</a></p>
                 </form>
             </div>
@@ -86,7 +81,7 @@ const LoginRegister = () => {
                     {errors.password && <div className='error'>{errors.password}</div>}
                     <input type="password" placeholder="Confirm Password" onChange={(e) => setPassword2(e.target.value)}/>
                     {errors.password2 && <div className='error'>{errors.password2}</div>}
-                    <button onClick={() => navigate("/feed")}>Register</button>
+                    <button type="submit">Register</button>
                     <p>Have an account already? <a href="#" onClick={() => handleSwitch(true)}>Click Here</a></p>
                 </form>
             </div>
