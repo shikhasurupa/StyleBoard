@@ -2,12 +2,11 @@ import React from "react";
 import logo from "./logo.png";
 import "./Header.css";
 
-// Header
-const Header = () => {
+const Header = ({ onCategoryChange }) => {
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
-    if (selectedCategory) {
-      console.log(`Selected category: ${selectedCategory}`);
+    if (onCategoryChange) {
+      onCategoryChange(selectedCategory);
     }
   };
 
@@ -20,8 +19,8 @@ const Header = () => {
         <select
             className="dropdown-select"
             onChange={handleCategoryChange}
-            defaultValue="">
-            <option value="" disabled>Filters</option>
+            defaultValue="Filters">
+            <option value="Filters">Filters</option>
             <option value="Women">Women</option>
             <option value="Men">Men</option>
             <option value="Kids">Kids</option>

@@ -1,19 +1,29 @@
 import './Feed.css';
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Pin from './Pin';
 import Data from './Data';
-import Header from '../Header/Header';
 
-//Main Feed
-const Feed = () => {
+const Feed = ({ selectedCategory }) => {
+  
+  const [filteredData, setFilteredData] = useState([]);
+
+  useEffect(() => {
+    if (selectedCategory && selectedCategory !== "Filters") {
+      const filtered = Data.filter(
+        (item) => item.type.toLowerCase() === selectedCategory.toLowerCase()
+      );
+      setFilteredData(filtered);
+    } else {
+      setFilteredData(Data);
+    }
+  }, [selectedCategory]);
 
   return (
-    <><Header /><div className="feed-container">
-      {Data && Data.map((Data) => <Pin
-        key={Data.id}
-        pinSize={Data.size}
-        imgSrc={Data.imgSrc} />)}
-    </div></>
+    <div className="feed-container">
+      {filteredData.map((item) => (
+          <Pin key={item.id} pinSize={item.size} imgSrc={item.imgSrc} />
+        ))}
+    </div>
   );
 };
 
