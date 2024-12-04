@@ -33,7 +33,8 @@ const Header = () => {
         </select>
         <button className="link-button" onClick={() => navigate("/feed")}>Home</button>
         <button className="link-button" onClick={() => navigate("/collections")}>Collections</button>
-        <button className="log-out-button" onClick={() => navigate("/")}>Log Out</button>
+        <button className="log-out-button" onClick={() => setTimeout(() => {
+                navigate("/")}, 500)}>Log Out</button>
       </div>
     </div>
   );
