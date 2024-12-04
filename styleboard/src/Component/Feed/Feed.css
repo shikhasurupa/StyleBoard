@@ -1,7 +1,6 @@
 .feed-container {
   flex: 1;
   height: auto;
-  margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-auto-rows: 10px;

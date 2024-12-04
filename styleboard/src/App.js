@@ -1,17 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 import LoginRegister from './Component/LoginRegister/LoginRegister';
 import Feed from './Component/Feed/FeedScreen';
+import CollectionPage from './Component/CollectionDummy';
+import Header from './Component/Header/Header'
 import { Routes, Route} from 'react-router-dom'
+import React, { useState } from "react";
 
 function App() {
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
-    <div>
+    <>
+      <Header onCategoryChange={handleCategoryChange} />
       <Routes>
-        <Route path='/' element={<LoginRegister />} />
-        <Route path='/feed' element={<Feed />} />
+        <Route path="/" element={<LoginRegister />} />
+        <Route path="/feed" element={<Feed selectedCategory={selectedCategory} />} />
+        <Route path='/collections' element={<CollectionPage />} />
       </Routes>
-    </div>
+    </>
   );
 }
 
