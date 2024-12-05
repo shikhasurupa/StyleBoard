@@ -10,9 +10,10 @@
   }
 
   .collection-container img {
-    object-fit: contain;
+    display: block;
     position: relative;
-    display: flex;
+    object-fit: fill;
     width: 100%;
+    height: auto;
     border-radius: 20px;
   }

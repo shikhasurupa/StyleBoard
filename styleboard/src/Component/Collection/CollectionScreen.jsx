@@ -1,13 +1,15 @@
 import './Collection.css'
 import React from 'react'
-import Data from './CollectionData';
 
-const CollectionScreen = () => {
+const CollectionScreen = ({ selectedImageSource }) => {
+  console.log('selectedImageSource:', selectedImageSource);
+
   return (
     <div className="collection-container">
-        {Data && Data.map((Data) =>
-          <img src={Data.imgSrc}
-        />)}
+      {selectedImageSource.length > 0 &&
+        selectedImageSource.map((imgSrc, index) => (
+          <img key={index} src={imgSrc} alt={`Saved ${index}`} />
+        ))}
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const Data = [
+const CollectionData = [
     {
         id: 1,
         imgSrc:
@@ -29,4 +29,4 @@ const Data = [
     },
 ];
 
-export default Data;
+export default CollectionData;
