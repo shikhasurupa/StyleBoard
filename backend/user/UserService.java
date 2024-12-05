@@ -1,10 +1,11 @@
-package org.nadiaproject.pinapp.service;
+package org.proj.styleboard.service;
 
-import org.nadiaproject.pinapp.entity.UserInfo;
-import org.nadiaproject.pinapp.repo.UserRepository;
+import org.proj.styleboard.entity.UserInfo;
+import org.proj.styleboard.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,9 +24,9 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    // Find user by email
-    public Optional<UserInfo> findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+    // Find user by username
+    public Optional<UserInfo> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     // Find user by ID
