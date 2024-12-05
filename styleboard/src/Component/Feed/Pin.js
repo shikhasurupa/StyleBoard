@@ -12,7 +12,7 @@ const Pin = ({pinSize, imgSrc, onImageSave}) => {
             <img src={imgSrc}/>
             <div>
                 <button className='save' onClick={handleImageSave}>
-                    <img src="https://github.com/shikhasurupa/StyleBoard/blob/main/styleboard/src/Images/OvelSaveButton.png?raw=true" />
+                    <img src="https://github.com/shikhasurupa/StyleBoard/blob/main/styleboard/src/Images/OvalSaveButton.png?raw=true" />
                 </button>
             </div>
         </div>
