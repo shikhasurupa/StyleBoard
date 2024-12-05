@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import Pin from './Pin';
 import Data from './Data';
 
-const Feed = ({ selectedCategory }) => {
+const Feed = ({ selectedCategory, onImageSave}) => {
   
   const [filteredData, setFilteredData] = useState([]);
 
@@ -21,7 +21,7 @@ const Feed = ({ selectedCategory }) => {
   return (
     <div className="feed-container">
       {filteredData.map((item) => (
-          <Pin key={item.id} pinSize={item.size} imgSrc={item.imgSrc} />
+          <Pin key={item.id} pinSize={item.size} imgSrc={item.imgSrc} onImageSave={onImageSave} />
         ))}
     </div>
   );

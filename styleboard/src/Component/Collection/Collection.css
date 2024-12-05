@@ -1,0 +1,19 @@
+.collection-container {
+    flex: 1;
+    margin: 50px;
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-auto-rows: 10px;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .collection-container img {
+    display: block;
+    position: relative;
+    object-fit: fill;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
