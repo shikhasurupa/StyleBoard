@@ -1,6 +1,8 @@
 import './Collection.css'
 import React from 'react'
 
+// Collection Page
+
 const CollectionScreen = ({ selectedImageSource }) => {
   console.log('selectedImageSource:', selectedImageSource);
 

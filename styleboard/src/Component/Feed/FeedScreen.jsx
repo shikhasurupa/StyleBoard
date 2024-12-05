@@ -3,6 +3,8 @@ import React, {useState, useEffect} from "react";
 import Pin from './Pin';
 import Data from './Data';
 
+
+// Main Feed
 const Feed = ({ selectedCategory, onImageSave}) => {
   
   const [filteredData, setFilteredData] = useState([]);

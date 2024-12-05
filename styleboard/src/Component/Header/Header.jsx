@@ -3,7 +3,7 @@ import logo from "./logo.png";
 import "./Header.css";
 import { useNavigate } from 'react-router-dom'
 
-
+// Header Component
 const Header = ({ onCategoryChange }) => {
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
