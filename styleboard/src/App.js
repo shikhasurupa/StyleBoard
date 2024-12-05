@@ -23,19 +23,40 @@ function App() {
   }};
 
   return (
-    <>
-      <Header onCategoryChange={handleCategoryChange} />
       <Routes>
         <Route path="/" element={<LoginRegister />} />
-        <Route path="/feed" 
+      
+        <Route
+          path="/feed"
           element={
-            <Feed 
-              selectedCategory={selectedCategory}
-              onImageSave={handleImageSave}/>} />
-        <Route path='/collections' element={<CollectionScreen selectedImageSource={selectedImageSource} />}/>
-        <Route path='/pins' element={<Pin onImageSave={handleImageSave} />}/>
+            <>
+              <Header onCategoryChange={handleCategoryChange} />
+              <Feed
+                selectedCategory={selectedCategory}
+                onImageSave={handleImageSave}
+              />
+            </>
+          }
+        />
+        <Route
+          path="/collections"
+          element={
+            <>
+              <Header onCategoryChange={handleCategoryChange} />
+              <CollectionScreen selectedImageSource={selectedImageSource} />
+            </>
+          }
+        />
+        <Route
+          path="/pins"
+          element={
+            <>
+              <Header onCategoryChange={handleCategoryChange} />
+              <Pin onImageSave={handleImageSave} />
+            </>
+          }
+        />
       </Routes>
-    </>
   );
 }
 
